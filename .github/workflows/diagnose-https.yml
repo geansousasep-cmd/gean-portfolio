@@ -27,6 +27,8 @@ jobs:
           dig +time=3 @1.1.1.1 gean.gelz.tech CAA +noall +answer
           echo '=== GitHub Pages API ==='
           gh api "repos/$GITHUB_REPOSITORY/pages" --jq '{status: .status, cname: .cname, html_url: .html_url, https_enforced: .https_enforced, https_certificate: .https_certificate}' || true
+          echo '=== GitHub Pages DNS health ==='
+          gh api "repos/$GITHUB_REPOSITORY/pages/health" || true
           echo '=== HTTP response ==='
           curl --max-time 12 -sS -I http://gean.gelz.tech/ || true
           echo '=== HTTPS TLS validation (without bypass) ==='
