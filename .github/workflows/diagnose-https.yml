@@ -1,0 +1,35 @@
+name: Diagnosticar DNS e HTTPS do Gean
+on:
+  push:
+    paths:
+      - '.github/workflows/diagnose-https.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: read
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Consultar DNS e estado do GitHub Pages
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          echo '=== DNS CNAME - resolvers públicos ==='
+          for server in 1.1.1.1 8.8.8.8 9.9.9.9; do
+            echo "Resolver: $server"
+            dig +time=3 +tries=1 @"$server" gean.gelz.tech CNAME +noall +answer
+            dig +time=3 +tries=1 @"$server" gean.gelz.tech A +noall +answer
+          done
+          echo '=== DNS CAA ==='
+          dig +time=3 @1.1.1.1 gelz.tech CAA +noall +answer
+          dig +time=3 @1.1.1.1 gean.gelz.tech CAA +noall +answer
+          echo '=== GitHub Pages API ==='
+          gh api "repos/$GITHUB_REPOSITORY/pages" --jq '{status: .status, cname: .cname, html_url: .html_url, https_enforced: .https_enforced, https_certificate: .https_certificate}' || true
+          echo '=== HTTP response ==='
+          curl --max-time 12 -sS -I http://gean.gelz.tech/ || true
+          echo '=== HTTPS TLS validation (without bypass) ==='
+          curl --max-time 12 -sS -I https://gean.gelz.tech/ || true
+          echo '=== HTTPS response (diagnostics only, ignore certificate) ==='
+          curl --max-time 12 -k -sS -I https://gean.gelz.tech/ || true
