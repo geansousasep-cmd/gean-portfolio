@@ -1,0 +1,41 @@
+name: Sincronizar portfólio Gean
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '17 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do portfólio
+        uses: actions/checkout@v4
+
+      - name: Obter a versão oficial de gelz.tech/gean
+        run: |
+          git clone --quiet --depth 1 --branch main https://github.com/geansousasep-cmd/gelz-site.git "$RUNNER_TEMP/gelz-portfolio-source"
+
+      - name: Atualizar conteúdo mantendo o domínio próprio
+        run: |
+          rsync -a --delete \
+            --exclude='.git/' \
+            --exclude='.github/' \
+            --exclude='CNAME' \
+            --exclude='README.md' \
+            --exclude='.nojekyll' \
+            "$RUNNER_TEMP/gelz-portfolio-source/gean/" ./
+
+      - name: Publicar alterações quando necessário
+        run: |
+          git add -A
+          if ! git diff --cached --quiet; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit -m "Sincronizar portfólio com gelz.tech/gean"
+            git push
+          fi
