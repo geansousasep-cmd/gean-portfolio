@@ -16,7 +16,9 @@
   <meta name="description" content="Portfólio profissional de Gean Sousa — e-commerce, operações digitais, growth, conteúdo, tecnologia e dados.">
   <meta name="theme-color" content="#080808">
   <meta name="robots" content="noindex,nofollow,noarchive">
-  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="icon" type="image/webp" href="https://agencia.gelz.tech/assets/logo-gelz.webp">
+  <link rel="apple-touch-icon" href="favicon.png">
+  <meta name="apple-mobile-web-app-title" content="Gean Sousa">
 
   <meta property="og:title" content="Gean Sousa | E-commerce & Operações Digitais">
   <meta property="og:description" content="Transformando ideias em operações digitais que vendem, medem e escalam.">
@@ -289,6 +291,28 @@
       .reveal{opacity:1;transform:none;transition:none}
       .button,.case-media img{transition:none}
     }
+    
+    /* GELZ 2026 — atualização de resultados mobile-first sem trocar a fonte */
+    .brand img,.agency-copy .logo-row img{background:#0a0c12;object-fit:contain;padding:3px}
+    .metric strong{font-size:clamp(2.1rem,6.4vw,4.4rem);line-height:1;overflow-wrap:anywhere}
+    .personal-proof{margin-top:14px;padding:clamp(16px,2.7vw,26px);border-radius:24px;background:linear-gradient(140deg,#17191f,#0c0e12);border:1px solid rgba(227,233,249,.13)}
+    .proof-intro{display:flex;justify-content:space-between;align-items:end;gap:18px;margin-bottom:19px}
+    .proof-intro h3{margin:9px 0 0;font-size:clamp(22px,3.4vw,32px);letter-spacing:-.05em}
+    .proof-intro p{font-size:11px;color:#aaa;max-width:320px;margin:0;line-height:1.65}
+    .personal-charts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+    .personal-chart{background:#0b0d11;padding:18px;border-radius:18px;border:1px solid rgba(255,255,255,.1)}
+    .personal-chart>b{display:block;font-size:13px;margin-bottom:16px}
+    .pc-label{display:flex;align-items:baseline;justify-content:space-between;gap:10px;color:#acb3bf;font-size:11px;margin:10px 0 7px}
+    .pc-label strong{font-size:13px;color:#f2f3f8}
+    .pc-track{height:9px;border-radius:10px;background:rgba(255,255,255,.08);overflow:hidden}
+    .pc-track i{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,#8391ac,#e8eaf4)}
+    .personal-detail{margin-top:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,.1)}
+    .personal-detail summary{cursor:pointer;font-size:12px;color:#e0e4ed;font-weight:700}
+    .personal-extra{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;padding-top:15px}
+    .personal-extra span{color:#a5abb9;font-size:11px}
+    .personal-extra strong{display:block;color:white;font-size:18px;margin-bottom:3px}
+    .personal-source{font-size:10px;line-height:1.7;color:#8e94a3;margin:14px 0 0}
+    @media(max-width:719px){.proof-intro{flex-direction:column;align-items:start}.personal-charts{grid-template-columns:1fr}.personal-extra{grid-template-columns:repeat(2,minmax(0,1fr))}.metric strong{font-size:clamp(2.5rem,10vw,3.8rem)}}
   </style>
 </head>
 <body>
@@ -430,35 +454,29 @@
 
     <section class="section" id="resultados">
       <div class="container">
-        <div class="section-head reveal">
-          <div>
-            <span class="section-label">03 · Resultados reais</span>
-            <h2>Números que mostram execução.</h2>
-          </div>
-          <p>Resultados consolidados em conteúdo, relacionamento e experiências de compra através de TikTok, Shopee, SHEIN e Instagram.</p>
-        </div>
-
+        <div class="section-head reveal"><div><span class="section-label">03 · Resultados reais</span><h2>Números que mostram execução.</h2></div><p>Indicadores comprovados da operação Gênesis na TikTok Shop. Minha experiência inclui também conteúdo, processos e plataformas digitais.</p></div>
         <div class="metrics-wrap reveal">
           <div class="metrics-grid">
-            <article class="metric">
-              <strong>1M+</strong>
-              <span>Pessoas alcançadas</span>
-              <p>Público impactado pelos conteúdos e ativos digitais.</p>
-            </article>
-            <article class="metric">
-              <strong>400K+</strong>
-              <span>Engajamentos e interações</span>
-              <p>Interações geradas nas redes e canais de conteúdo.</p>
-            </article>
-            <article class="metric">
-              <strong>400+</strong>
-              <span>Pedidos e experiências de compra</span>
-              <p>Operações construídas e acompanhadas do catálogo ao pós-venda.</p>
-            </article>
+            <article class="metric"><strong>R$ 86,8 mil</strong><span>GMV registrado</span><p>Valor bruto de mercadorias da operação</p></article>
+            <article class="metric"><strong>1.102</strong><span>Itens vendidos</span><p>1.060 pedidos no período analisado</p></article>
+            <article class="metric"><strong>3,27 mi</strong><span>Impressões de produtos</span><p>1.941.158 impressões únicas registradas</p></article>
           </div>
-          <div class="platforms">
-            <span>TikTok Shop</span><span>Shopee</span><span>SHEIN</span><span>Instagram</span><span>Google</span>
+          <div class="personal-proof">
+            <div class="proof-intro"><div><span class="section-label">TIKTOK SHOP · 03/11/2025 — 29/10/2026</span><h3>Da apresentação à operação.</h3></div><p>Gráficos compactos com números verificáveis, sem inventar dados diários ou promessas de conversão.</p></div>
+            <div class="personal-charts">
+              <div class="personal-chart" role="img" aria-label="Itens vendidos: 1102, pedidos: 1060">
+                <b>Volume comercial</b><div class="pc-label"><span>Itens vendidos</span><strong>1.102</strong></div><div class="pc-track"><i style="width:100%"></i></div>
+                <div class="pc-label"><span>Pedidos</span><strong>1.060</strong></div><div class="pc-track"><i style="width:96.19%"></i></div>
+              </div>
+              <div class="personal-chart" role="img" aria-label="Impressões: 3267696, impressões únicas: 1941158">
+                <b>Visibilidade dos produtos</b><div class="pc-label"><span>Impressões</span><strong>3.267.696</strong></div><div class="pc-track"><i style="width:100%"></i></div>
+                <div class="pc-label"><span>Impressões únicas</span><strong>1.941.158</strong></div><div class="pc-track"><i style="width:59.4%"></i></div>
+              </div>
+            </div>
+            <details class="personal-detail"><summary>Explorar outros indicadores +</summary><div class="personal-extra"><span><strong>180.617</strong> visitantes</span><span><strong>1.041</strong> clientes</span><span><strong>1.097</strong> pedidos de SKU</span><span><strong>1.060</strong> pedidos</span></div></details>
+            <p class="personal-source">Fonte: TikTok Shop Gênesis, painel atualizado em 29/10/2026 às 00h28, período de 03/11/2025 a 29/10/2026. GMV não é lucro. Os gráficos são comparações de totais, não uma curva diária reconstruída. Resultados da operação comercial, não atribuídos exclusivamente ao design.</p>
           </div>
+          <div class="platforms"><span>TikTok Shop</span><span>Shopee</span><span>SHEIN</span><span>Instagram</span><span>Google</span></div>
         </div>
       </div>
     </section>
